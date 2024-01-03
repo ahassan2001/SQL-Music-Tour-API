@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const db = require("../models");
+const db = require("../migrations");
 const { Event } = db;
 
 router.get("/", async (req, res) => {

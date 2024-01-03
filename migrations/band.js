@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Event extends Model {
+  class Band extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,22 +11,19 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Event.init(
+  Band.init(
     {
-      event_id: {
+      band_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER,
       },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
+      genre: DataTypes.TEXT,
       start_time: {
         type: DataTypes.DATE,
         allowNull: false,
@@ -38,10 +35,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Event",
-      tableName: "Events",
+      modelName: "Band",
+      tableName: "Bands",
       timestamps: false
     }
   );
-  return Event;
+  return Band;
 };
